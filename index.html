@@ -30,13 +30,11 @@
 
         <hr>
 
-        <h2>Nos produits:</h2>
-
-        <div class="card" style="width: 20rem;">
-            <img :src="src" class="card-img-top w-50 m-auto" :alt="product">
+        <div class="card" style="width: 30rem;">
+            <img :src="image" class="card-img-top w-50 m-auto" :alt="product">
 
             <div class="d-flex">
-                <span v-for="variant in variants" :key="variant.id" @mouseover="colorChange(variant.image)" class="pill"
+                <span v-for="(variant, ind) in variants" :key="variant.id" @mouseover="activeVariant = ind" class="pill"
                     :style="{ backgroundColor: variant.pillColor }">{{
                     variant.color }}
                 </span>
@@ -48,14 +46,15 @@
 
                 <h3 class="card-title text-center">{{ product }}</h3>
                 <p class="card-text">{{ description }}</p>
-                <p class="text-success" v-if="available"><i>En Stock</i></p>
+                <p class="text-success" v-if="inStock"><i>En Stock</i></p>
                 <p class="text-danger" v-else><i>Rupture de Stock</i></p>
                 <ul>
                     <li v-for="(spec, ind) in specs" v-bind:key="ind">
                         {{ spec }}
                     </li>
                 </ul>
-                <a @click="addToCart" href="#" class="btn btn-success w-100">Ajouter au panier</a>
+                <button @click="cart++" class="btn btn-dark w-100" :disabled="!inStock">Ajouter
+                    au panier</button>
             </div>
         </div>
 
