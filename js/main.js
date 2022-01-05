@@ -4,7 +4,7 @@ const app = Vue.createApp({
             product: 'iPhone 13',
             description: 'Un système photo nettement plus puissant. Un écran si réactif qu’il renouvelle vos sensations à chaque interaction.',
             specs: ['Waterproof', 'Écran HDR', 'Haptic Touch'],
-            cart: 0,
+            cartCount: 0,
             variants: [
                 { id: '1', quantity: 12, color: 'Bleu', pillColor: '#1A5F7A', image: './assets/images/iphone-13-blue.png' },
                 { id: '2', quantity: 0, color: 'Noir', pillColor: '#111', image: './assets/images/iphone-13-midnight.png' },
@@ -27,7 +27,7 @@ const app = Vue.createApp({
         }
     }
 });
-app.component('nav-bar', {
+app.component('navbar-component', {
     template: `
         <nav>
             <ul>
@@ -35,10 +35,17 @@ app.component('nav-bar', {
                 <li><a class="text-dark" href="#">Produits</a></li>
                 <li><a class="text-dark" href="#">Qui sommes nous?</a></li>
             </ul>
-            <div class="cart">
-                <span><i class="fas fa-shopping-cart me-2"></i> Panier({{ cart }})</span>
-            </div>
+            <cart-component :cart-count="cartCount"></cart-component>
         </nav>
-    `
+    `,
+    props: ['cart-count']
+})
+app.component('cart-component', {
+    template: `
+        <div class="cart">
+            <span><i class="fas fa-shopping-cart me-2"></i> Panier({{ cartCount }})</span>
+        </div>
+    `,
+    props: ['cart-count']
 })
 app.mount('#app');

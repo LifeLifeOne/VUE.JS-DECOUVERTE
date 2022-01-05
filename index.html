@@ -17,10 +17,11 @@
 <body class="container my-2">
     <div id="app">
 
-        <nav-bar></nav-bar>
+        <!-- Navigation + Cart  -->
+        <navbar-component :cart-count="cartCount"></navbar-component>
 
         <hr>
-
+        <!-- Card  -->
         <div class="card" style="width: 30rem;">
             <img :src="image" class="card-img-top w-50 m-auto" :alt="product">
 
@@ -44,7 +45,7 @@
                         {{ spec }}
                     </li>
                 </ul>
-                <button @click="cart++" class="btn btn-dark w-100" :disabled="!inStock">Ajouter
+                <button @click="cartCount++" class="btn btn-dark w-100" :disabled="!inStock">Ajouter
                     au panier</button>
             </div>
         </div>
