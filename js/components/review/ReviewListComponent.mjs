@@ -5,6 +5,7 @@ const ReviewListComponent = {
                 <h5 @send-review="displayReview">Utilisateur: {{ review.name }}</h5>
                 <strong>Note: {{ review.rating }}</strong>
                 <p class="opacity-75">Avis: "{{ review.review }}"</p>
+                <hr>
             </div>
         </div>
     `,
