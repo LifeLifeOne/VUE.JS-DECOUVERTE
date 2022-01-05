@@ -6,10 +6,11 @@ const NavBarComponent = {
                 <li><a class="text-dark" href="#">Produits</a></li>
                 <li><a class="text-dark" href="#">Qui sommes nous?</a></li>
             </ul>
-            <cart-component :cart-count="cartCount"></cart-component>
+            <cart-component :cart="cart"></cart-component>
         </nav>
+        <hr>
     `,
-    props: ['cart-count']
+    props: ['cart']
 }
 
 export default NavBarComponent;

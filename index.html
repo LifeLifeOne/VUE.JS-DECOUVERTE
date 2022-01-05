@@ -17,38 +17,11 @@
 <body class="container my-2">
     <div id="app">
 
-        <!-- Navigation + Cart  -->
-        <navbar-component :cart-count="cartCount"></navbar-component>
+        <!-- Navigation + Cart -->
+        <navbar-component :cart="cart"></navbar-component>
 
-        <hr>
-        <!-- Card  -->
-        <div class="card" style="width: 30rem;">
-            <img :src="image" class="card-img-top w-50 m-auto" :alt="product">
-
-            <div class="d-flex">
-                <span v-for="(variant, ind) in variants" :key="variant.id" @mouseover="activeVariant = ind" class="pill"
-                    :style="{ backgroundColor: variant.pillColor }">{{
-                    variant.color }}
-                </span>
-            </div>
-
-            <hr>
-
-            <div class="card-body">
-
-                <h3 class="card-title text-center">{{ product }}</h3>
-                <p class="card-text">{{ description }}</p>
-                <p class="text-success" v-if="inStock"><i>En Stock</i></p>
-                <p class="text-danger" v-else><i>Rupture de Stock</i></p>
-                <ul>
-                    <li v-for="(spec, ind) in specs" v-bind:key="ind">
-                        {{ spec }}
-                    </li>
-                </ul>
-                <button @click="cartCount++" class="btn btn-dark w-100" :disabled="!inStock">Ajouter
-                    au panier</button>
-            </div>
-        </div>
+        <!-- Product -->
+        <product-component @add-product="cart++"></product-component>
 
     </div>
     <script type="module" src="./js/main.js"></script>
