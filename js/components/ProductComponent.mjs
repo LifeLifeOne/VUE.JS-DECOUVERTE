@@ -15,9 +15,9 @@ const ProductComponent = {
             <div class="card-body">
 
                 <h3 class="card-title text-center">{{ product }}</h3>
-                <p class="card-text">{{ description }}</p>
-                <p class="text-success" v-if="inStock"><i>En Stock</i></p>
-                <p class="text-danger" v-else><i>Rupture de Stock</i></p>
+                <p class="card-text opacity-75">{{ description }}</p>
+                <p class="text-success" v-if="inStock"><i class="fas fa-circle me-2"> </i><i>En Stock</i></p>
+                <p class="text-danger" v-else><i class="fas fa-circle me-2"> </i><i>Rupture de Stock</i></p>
                 <ul>
                     <li v-for="(spec, ind) in specs" v-bind:key="ind">
                         {{ spec }}

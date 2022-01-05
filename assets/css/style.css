@@ -34,6 +34,34 @@ nav > ul > li {
   border-radius: 2rem;
 }
 
+.main-wrapper {
+  display: block;
+  gap: 3rem;
+}
+
+.review-container {
+  padding: 1.5rem;
+  margin-top: 2rem;
+  background-color: white;
+  border-radius: 0.2rem;
+  min-width: 50%;
+}
+
+.review-list {
+  background-color: rgb(247, 234, 247);
+  padding: 1rem;
+  border-radius: 0.2rem;
+}
+
+@media screen and (min-width: 850px) {
+  .main-wrapper {
+    display: flex !important;
+  }
+  .review-container {
+    margin-top: 0;
+  }
+}
+
 .pill {
   border-radius: 100vw;
   padding: 0.2rem 1rem;

@@ -20,8 +20,13 @@
         <!-- Navigation + Cart -->
         <navbar-component :cart="cart"></navbar-component>
 
-        <!-- Product -->
-        <product-component @add-product="cart++"></product-component>
+        <div class="main-wrapper">
+            <!-- Product -->
+            <product-component @add-product="cart++"></product-component>
+
+            <!-- Review Zone  -->
+            <review-zone-component></review-zone-component>
+        </div>
 
     </div>
     <script type="module" src="./js/main.js"></script>
